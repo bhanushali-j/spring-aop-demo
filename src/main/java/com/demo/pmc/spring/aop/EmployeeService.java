@@ -18,4 +18,8 @@ public class EmployeeService {
 	public List<Employee> getEmployee() {
 		return employeeRepository.findAll();
 	}
+	
+	public Employee getEmployeeById(int id) {
+		return employeeRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("User not found with id:"+id));
+	}
 }
